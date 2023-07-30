@@ -1,0 +1,43 @@
+.app-header {
+    color: $almost-black;
+    box-shadow: rgb(0 0 0 / 19%) 0px 1px 5px;
+    font-size: 1.2rem;
+
+    .logo-container {
+        display: flex;
+
+        img {
+            width: 40px;
+            height: 40px;
+            margin-inline-end: 10px;
+        }
+    }
+
+
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+
+        h2,
+        span.fa-solid {
+            font-size: 2.2rem;
+        }
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+
+        img {
+            margin: 0;
+            padding-right: 40px;
+        }
+    }
+
+    .router-link-active:not(.logo-container) {
+        color: $p-clr1;
+    }
+}

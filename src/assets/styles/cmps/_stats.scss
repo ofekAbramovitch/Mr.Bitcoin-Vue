@@ -1,0 +1,11 @@
+.stats {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+
+    .chart-container {
+        width: 80vw;
+        margin: 0 auto;
+    }
+}
