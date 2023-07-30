@@ -37,7 +37,7 @@ export const contactStore = {
     actions: {
         async loadContacts({ commit }, { filterBy }) {
             try {
-                const contacts = await contactService.getContacts(filterBy)
+                const contacts = await contactService.query(filterBy)
                 commit({ type: 'setContacts', contacts })
             } catch (err) {
                 throw err
@@ -46,7 +46,7 @@ export const contactStore = {
         async removeContact({ commit }, payload) {
             commit(payload)
             try {
-                await contactService.deleteContact(payload.contactId)
+                await contactService.remove(payload.contactId)
                 commit({ type: 'clearRemoveContact' })
             } catch (err) {
                 commit({ type: 'undoRemoveContact' })
@@ -56,7 +56,7 @@ export const contactStore = {
         async saveContact({ commit }, { contact }) {
             const actionType = contact._id ? 'updateContact' : 'addContact'
             try {
-                const savedContact = await contactService.saveContact(contact)
+                const savedContact = await contactService.save(contact)
                 commit({ type: actionType, contact: savedContact })
                 return savedContact
             } catch (err) {

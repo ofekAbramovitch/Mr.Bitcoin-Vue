@@ -19,7 +19,7 @@ export default {
   async created() {
     const contactId = this.$route.params._id;
     if (contactId) {
-      this.contact = await contactService.getContactById(contactId);
+      this.contact = await contactService.getById(contactId);
     } else this.contact = contactService.getEmptyContact();
   },
   methods: {
