@@ -1,7 +1,12 @@
 <template>
-  <section class="contact-filter full">
+  <section class="contact-filter main-layout">
     <p class="large">Search</p>
-    <input type="text" @input="onFilterBy" v-model="filterBy.txt" />
+    <input
+      type="text"
+      @input="onFilterBy"
+      v-model="filterBy.txt"
+      placeholder="Search by name"
+    />
   </section>
 </template>
 

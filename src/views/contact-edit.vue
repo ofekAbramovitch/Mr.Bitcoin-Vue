@@ -1,9 +1,17 @@
 <template>
-  <form @submit.prevent="save(contact)" v-if="contact" class="contact-edit">
-    <input type="text" v-model="contact.name" />
-    <input type="email" v-model="contact.email" />
-    <input type="tel" v-model="contact.phone" />
-    <button>Save</button>
+  <form @submit.prevent="save(contact)" v-if="contact" class="contact-edit main-layout">
+    <h2>{{ getTitle }}</h2>
+    <input type="text" v-model="contact.name" placeholder="Enter name..." />
+    <input type="email" v-model="contact.email" placeholder="Enter email..." />
+    <input
+      type="tel"
+      v-model="contact.phone"
+      placeholder="Enter phone number..."
+    />
+    <button class="primary">Save</button>
+    <RouterLink class="close-btn" to="/contact">
+      <span class="material-symbols-outlined">close</span>
+    </RouterLink>
   </form>
 </template>
 
@@ -35,6 +43,11 @@ export default {
       } finally {
         this.$router.push("/contact");
       }
+    },
+  },
+  computed: {
+    getTitle() {
+      return (this.contact._id ? "Edit" : "Add") + " Contact";
     },
   },
 };

@@ -1,7 +1,11 @@
 .app-header {
-    color: $almost-black;
+    background-color: $almost-black;
+    color: $p-clr3;
     box-shadow: rgb(0 0 0 / 19%) 0px 1px 5px;
     font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 2;
 
     .logo-container {
         display: flex;
@@ -12,7 +16,6 @@
             margin-inline-end: 10px;
         }
     }
-
 
     .header-container {
         display: flex;
@@ -26,18 +29,51 @@
         }
     }
 
-    nav {
-        display: flex;
-        align-items: center;
-        gap: 40px;
-
-        img {
-            margin: 0;
-            padding-right: 40px;
-        }
-    }
-
     .router-link-active:not(.logo-container) {
         color: $p-clr1;
+    }
+
+    .menu-btn {
+        display: block;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    nav,
+    .rate,
+    .user-info span {
+        display: none;
+    }
+
+    .menu-open {
+        position: fixed;
+        padding: 50px;
+        background-color: $almost-black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        z-index: 1;
+        width: 100%;
+        top: 60px;
+        left: 0;
+        box-shadow: $p-clr1 0px 2px 3px;
+    }
+
+    @media (min-width: $break-normal) {
+        .menu-btn {
+            display: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        .user-info span,
+        .rate {
+            display: flex;
+            gap: 20px;
+        }
     }
 }

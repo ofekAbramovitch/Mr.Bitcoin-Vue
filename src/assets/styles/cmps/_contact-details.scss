@@ -1,13 +1,53 @@
 .contact-details {
-    display: grid;
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    gap: 50px;
+    padding-top: 30px;
 
+    
     img {
         width: 300px;
     }
+    
+    .info {
+        padding-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+        
+        .transfer-funds {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            
+            label {
+                font-size: 1.5rem;
+            }
+            
+            input {
+                width: 50px;
+            }
+        }
+        
+        .close-btn {
+            position: absolute;
+            right: 20px;
+            top: 0;
+            color: $p-clr1;
+            margin-top: 30px;
+            
+            span {
+                padding-top: 20px;
+                font-size: 2rem;
+            }
+        }
+    }
 
-    a {
-        color: $p-clr1;
-        margin-top: 30px;
+    @media(min-width: $break-normal) {
+        flex-direction: row;
     }
 }

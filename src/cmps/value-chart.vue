@@ -42,6 +42,7 @@ export default {
           {
             label: "Value (USD)",
             backgroundColor: "#f7931a99",
+            color: "#f7931a",
             data: null,
           },
         ],

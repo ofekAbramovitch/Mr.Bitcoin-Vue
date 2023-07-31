@@ -20,7 +20,7 @@ export const contactStore = {
             state.contacts.splice(idx, 1)
         },
         addContact(state, { contact }) {
-            state.contacts.push(contact)
+            state.contacts.unshift(contact)
         },
         updateContact(state, { contact }) {
             const idx = state.contacts.findIndex(contactToFind => contactToFind._id === contact._id)

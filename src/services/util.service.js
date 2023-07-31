@@ -4,7 +4,8 @@ export const utilService = {
     makeId,
     getRandomInt,
     saveToStorage,
-    loadFromStorage
+    loadFromStorage,
+    calculateTime
 }
 
 function makeId() {
@@ -27,4 +28,22 @@ function saveToStorage(key, value) {
 function loadFromStorage(key) {
     const data = localStorage.getItem(key)
     return (data) ? JSON.parse(data) : undefined
+}
+
+function calculateTime(time) {
+    const currentTime = new Date().getTime()
+    const timeDiff = Math.floor((currentTime - time) / 60000)
+    if(timeDiff >= 60 * 24 * 7) {
+        const week = Math.floor(timeDiff / (60 * 24 * 7))
+        return `${week}w ago`
+    } else if(timeDiff >= 60 * 24) {
+        const day = Math.floor(timeDiff / (60 * 24))
+        return `${day}d ago`
+    } else if (timeDiff >= 60) {
+      const hours = Math.floor(timeDiff / 60)
+      return `${hours}h ago`
+    } else if(timeDiff >= 2) {
+        const minutes = timeDiff % 60
+        return `${minutes}m ago`
+    } else return 'right now' 
 }

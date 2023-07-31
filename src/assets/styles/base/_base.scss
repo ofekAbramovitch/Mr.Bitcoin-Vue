@@ -6,7 +6,8 @@
 body {
   margin: 0;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  color: $almost-black;
+  color: $p-clr3;
+  background-color: $bg-clr;
 }
 
 h1,
@@ -39,12 +40,6 @@ h3 {
   font-size: 18px;
   line-height: 28px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-section,
-main,
-footer {
-  padding: 5px;
 }
 
 main {
