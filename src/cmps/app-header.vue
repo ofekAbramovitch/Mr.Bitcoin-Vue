@@ -3,9 +3,7 @@
     <div class="header-container">
       <RouterLink to="/home" class="logo-container" @click="closeNavbar">
         <img src="/img/bitcoin-logo.svg" alt="" />
-        <h2>Mr.</h2>
-        <span class="fa-solid bitcoin"></span>
-        <h2>itcoin</h2>
+        <h2>Mr.₿itcoin</h2>
       </RouterLink>
       <div class="user-info" v-if="loggedinUser || user">
         <span>Welcome, {{ loggedinUser.name }}</span>
