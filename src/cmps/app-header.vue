@@ -34,7 +34,7 @@ export default {
       rate: null,
     };
   },
-  async mounted() {
+  async created() {
     const user = userService.getLoggedinUser();
     if (user) this.loggedinUser = user;
     this.rate = await bitcoinService.getRate();
