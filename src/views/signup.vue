@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import { eventBus } from '../services/eventBus.service';
 import { userService } from "../services/user.service";
 
 export default {
@@ -31,6 +32,7 @@ export default {
       try {
         if (!this.user.name) return
         await userService.login(this.user);
+        eventBus.emit('login', this.user)
         this.$emit("setUser");
         this.$router.push("/home");
       } catch (err) {

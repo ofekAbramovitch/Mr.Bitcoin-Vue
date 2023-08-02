@@ -25,6 +25,7 @@
 <script>
 import { userService } from "../services/user.service";
 import { bitcoinService } from "../services/bitcoin.service";
+import { eventBus } from "../services/eventBus.service";
 
 export default {
   props: ["user"],
@@ -38,6 +39,8 @@ export default {
     const user = userService.getLoggedinUser();
     if (user) this.loggedinUser = user;
     this.rate = await bitcoinService.getRate();
+    eventBus.on("updateBalance", (data) => (this.loggedinUser.balance -= data));
+    eventBus.on("login", (user) => (this.loggedinUser = user));
   },
   methods: {
     toggleNavbar() {

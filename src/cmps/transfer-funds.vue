@@ -8,6 +8,7 @@
 
 <script>
 import { userService } from "../services/user.service";
+import { eventBus } from "../services/eventBus.service";
 
 export default {
   props: ["contact"],
@@ -28,6 +29,7 @@ export default {
       try {
         if (this.transaction.amount === 0) return;
         await userService.transferFunds(this.transaction);
+        eventBus.emit("updateBalance", this.transaction.amount);
         this.$emit("loadTransactions");
         this.transaction.amount = 0;
         this.$router.push("/contact");
